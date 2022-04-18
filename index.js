@@ -1,4 +1,5 @@
 import express from "express"
+import routes from './src/routes/coffee.route.js'
 import cors from "cors"
 
 const app = express();
