@@ -50,4 +50,47 @@ function abrirModalCadastro() {
 
 function fecharModalCadastro() {
   document.querySelector(".modal-overlay").style.display = "none";
+  document.querySelector("#sabor").value = "";
+  document.querySelector("#preco").value = 0;
+  document.querySelector("#descricao").value = "";
+  document.querySelector("#foto").value = "";
 }
+
+async function createPaleta() {
+  const sabor = document.querySelector("#sabor").value;
+  const preco = document.querySelector("#preco").value;
+  const descricao = document.querySelector("#descricao").value;
+  const foto = document.querySelector("#foto").value;
+
+  const coffee = {
+    sabor,
+    preco,
+    descricao,
+    foto,
+  };
+
+  const response = await fetch(baseUrl + "/create", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    body: JSON.stringify(coffee),
+  });
+  const newCoffee = await response.json()
+
+  const html = `<div class="PaletaListaItem">
+  <div>
+    <div class="CoffeeListItem__sabor">${newCoffee.sabor}</div>
+    <div class="CoffeeListItem__preco">R$ ${newCoffee.preco.toFixed(2)}</div>
+    <div class="CoffeeListItem__descricao">${newCoffee.descricao}</div>
+  </div>
+    <img class="CoffeeListItem__foto" src=${
+      newCoffee.foto
+    } alt=${`Coffee de ${newCoffee.sabor}`} />
+  </div>`;
+
+  document.getElementById("CoffeeList").insertAdjacentHTML("beforeend", html);
+  
+  fecharModalCadastro()
+};
