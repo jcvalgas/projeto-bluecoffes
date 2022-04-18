@@ -13,7 +13,7 @@ const coffees = [
         sabor: 'Metropolitan Express',
         preco: 10,
         descricao: 'tempor incididunt ut labore et dolore magna aliqua.',
-        foto: './assets/img/coffee-images/large-coffee_ccexpress.png'
+        foto: 'assets/img/coffee-images/large-coffee_ccexpress.png'
     },
     {
         id: 2,
