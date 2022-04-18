@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "Humble\ Cafe";
+  src: url(/assets/fonts/Humble\ Cafe.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  font-family: sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.logo > img {
+  width: 100px;
+  height: 30px;
+  margin: auto;
+}
+.logo > h1 {
+  font-family: "Humble Cafe";
+  font-size: 3rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.home {
+  position: relative;
+  background-image: radial-gradient(
+    farthest-corner at 40px 40px,
+    #eeeb50 60%,
+    rgba(238, 255, 0, 0.5) 100%
+  );
+  min-height: calc(100vh - 60px);
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
+  color: black;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.home > h2 {
+  display: flex;
+  justify-content: space-around;
+  color: rgb(0, 0, 0);
+  padding: 1rem;
+}
+
+.home > div {
+  display: flex;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+}
+
+.Home__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 350px) {
+  .Home__container {
+    justify-content: unset;
+  }
+}
+
+.CoffeeList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px 50px;
+}
+
+@media (max-width: 1220px) {
+  .CoffeeList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .CoffeeList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.CoffeeCardItem,
+.CoffeeListItem {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 315px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.CoffeeCardItem {
+  margin: 20px 0;
+  height: 150px;
+  width: auto;
+}
+
+@media (max-width: 400px) {
+  .CoffeeCardItem,
+  .CoffeeListItem  {
+    width: 210px;
+    height: 180px;
+  }
+}
+
+.CoffeeCardItem > div,
+.CoffeeListItem > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.CoffeeCardItem__sabor,
+.CoffeeListItem__sabor {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.CoffeeCardItem__descricao,
+.CoffeeListItem__descricao {
+  font-size: 0.85em;
+}
+
+.CoffeeCardItem__preco,
+.CoffeeListItem__preco {
+  color: darkgreen;
+}
+
+.CoffeeListItem__foto {
+  height: 150px;
+  margin-right: -60px;
+}
