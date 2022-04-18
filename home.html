@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://toppng.com/public/uploads/thumbnail/coffee-cup-tea-white-silhouette-icon-11642050901zflurw65ap.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Home</title>
+    <title>Coffe's Blue</title>
   </head>
   <body>
     <!-- Header -->
@@ -32,10 +33,34 @@
             />
             <h6>Favoritos</h6>
           </div>
+          <div class="button-modal-create">
+            <button onclick="abrirModalCadastro()">+</button>
+          </div>
         </div>
       </section>
 
-      <!-- Home -->
+    <!-- Home -->
+    <section class="modal-overlay" id="overlay">
+
+      <div class="modal">
+
+          <div class="modal-header">
+              <h2>Cadastrar uma paleta</h2>
+              <a onclick="fecharModalCadastro()" class="close-modal">x</a>
+          </div>
+
+          <div class="modal-body">
+              <div>
+                  <input type="text" name="sabor" id="sabor" placeholder="Sabor da Paleta">
+                  <input type="number" name="preco" id="preco" placeholder="Preço da Paleta">
+                  <textarea type="text" name="descricao" id="descricao" placeholder="Descrição da Paleta"
+                      rows="5"></textarea>
+                  <input type="text" name="foto" id="foto" placeholder="Link da Foto da Paleta">
+                  <button onclick="createPaleta()">Cadastrar</button>
+              </div>
+          </div>
+      </div>
+  </section>
     <div class="coffee-escolhido-espaco">
       <div id="coffee-escolhido-input-espaco">
         <input type="number" id="idCoffee" placeholder="Digite o ID do café e clique em 'Escolher'" />
