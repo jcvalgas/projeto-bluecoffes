@@ -49,4 +49,23 @@ export const findAllCoffeesService = () => {
 
 export const findByIdCoffeeService = (paramId) => {
     return coffees.find(element => element.id == paramId);
-}
+};
+
+export const createCoffeeService = (newCoffee) => {
+    const newId = coffees.length + 1;
+    newCoffee.id = newId;
+    coffees.push(newCoffee);
+    return coffees;
+};
+
+export const updateCoffeeService = (id, edit) => {
+    edit['id'] = id;
+    const coffeeIndex = coffees.findIndex(element => element.id == id);
+    coffees[coffeeIndex] = edit;
+    return edit;
+};
+
+export const deleteCoffeeService = (id) => {
+    const coffeeIndex = coffees.findIndex(element => element.id == id);
+    coffees.splice(coffeeIndex, 1);
+};
