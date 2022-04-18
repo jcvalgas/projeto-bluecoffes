@@ -1,12 +1,12 @@
-import coffeesService from '../services/coffee.service.js'
+import { findAllCoffeesService, findByIdCoffeeService } from '../services/coffee.service.js'
 
 export const findAllCoffeesController = (req, res) => {
-    const coffees = coffeesService.findAllCoffeesService
+    const coffees = findAllCoffeesService();
     res.send(coffees)
 };
 
 export const findByIdCoffeeController = (req, res) => {
-    const paramId = req.params.id;
-    const choosenCoffee = coffeesService.findByIdCoffeeService(paramId)
+    const paramId = +req.params.id;
+    const choosenCoffee = findByIdCoffeeService(paramId)
     res.send(choosenCoffee)
 }
