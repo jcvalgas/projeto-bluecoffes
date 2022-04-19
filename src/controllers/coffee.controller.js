@@ -13,7 +13,7 @@ export const findAllCoffeesController = (req, res) => {
 
 export const findByIdCoffeeController = (req, res) => {
   const paramId = Number(req.params.id);
-  if (!idParam) {
+  if (!paramId) {
     return res.status(404).send({ message: "Café não encontrado" })
   }
   const choosenCoffee = findByIdCoffeeService(paramId);
@@ -44,7 +44,11 @@ export const updateCoffeeController = (req, res) => {
     return res.status(404).send({ message: "Café não encontrado" })
   }
 
-  if (!paletaEdit || !paletaEdit.sabor || !paletaEdit.descricao || !paletaEdit.foto || !paletaEdit.preco) {
+  if (!coffeeEdit ||
+    !coffeeEdit.sabor ||
+    !coffeeEdit.descricao ||
+    !coffeeEdit.foto ||
+    !coffeeEdit.preco) {
     return res.status(400).send({ message: "Você não preencheu todos os dados para editar o café!" });
   }
   const updateCoffee = updateCoffeeService(idParam, coffeeEdit);

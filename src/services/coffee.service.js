@@ -55,7 +55,7 @@ export const createCoffeeService = (newCoffee) => {
     const newId = coffees.length + 1;
     newCoffee.id = newId;
     coffees.push(newCoffee);
-    return coffees;
+    return newCoffee;
 };
 
 export const updateCoffeeService = (id, edit) => {

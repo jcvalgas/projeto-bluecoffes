@@ -34,7 +34,7 @@
             <h6>Favoritos</h6>
           </div>
           <div class="button-modal-create">
-            <button onclick="abrirModalCadastro()">+</button>
+            <button onclick="abrirModal()">+</button>
           </div>
         </div>
       </section>
@@ -45,18 +45,19 @@
       <div class="modal">
 
           <div class="modal-header">
-              <h2>Cadastrar uma paleta</h2>
-              <a onclick="fecharModalCadastro()" class="close-modal">x</a>
+              <h2 id="title-header-modal">Cadastrar uma paleta</h2>
+              <a onclick="fecharModal()" class="close-modal">x</a>
           </div>
 
           <div class="modal-body">
               <div>
+                  <input type="hidden" id="id" >
                   <input type="text" name="sabor" id="sabor" placeholder="Sabor do Café">
                   <input type="number" name="preco" id="preco" placeholder="Preço do Café">
                   <textarea type="text" name="descricao" id="descricao" placeholder="Descrição do Café"
                       rows="5"></textarea>
                   <input type="text" name="foto" id="foto" placeholder="Link da Foto do Café">
-                  <button onclick="createPaleta()">Cadastrar</button>
+                  <button id="button-form-modal" onclick="createCoffee()">Cadastrar</button>
               </div>
           </div>
       </div>
@@ -73,7 +74,7 @@
     <h2 class="principal">Cafés Disponíveis</h2>
     <section class="Home__container">
       <div class="CoffeeList" id="CoffeeList"></div>
-          <!-- <div class="CoffeeCardItem"></div> -->
+          
     </section>
     <script src="assets/script/script.js"></script>
   </body>
