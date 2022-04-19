@@ -69,7 +69,7 @@ async function createPaleta() {
     foto,
   };
 
-  const response = await fetch(baseUrl + "/create", {
+  const response = await fetch(baseURL + "/create", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
