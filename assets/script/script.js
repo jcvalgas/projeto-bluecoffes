@@ -16,7 +16,7 @@ async function findAllCoffees () {
           </div>
           <div class="Acoes">
             <button class="Acoes__editar btn" onclick="abrirModal(${element.id})">Editar</button> 
-            <button class="Acoes__apagar btn">Apagar</button>
+            <button class="Acoes__apagar btn" onclick="abrirModalDelete(${element.id})">Apagar</button>
           </div>
         </div>
           <img class='CoffeeListItem__foto' src="${element.foto}" alt="${element.sabor}">    
@@ -36,12 +36,12 @@ async function findByIdCoffees(){
   
   coffeeEscolhidoDiv.innerHTML = `<div class="CoffeeCardItem id="CoffeeListItem_${coffee.id}">
     <div>
-      <div class=CoffeeCardItem__sabor">${coffee.sabor}</div>
+      <div class="CoffeeCardItem__sabor">${coffee.sabor}</div>
       <div class="CoffeeCardItem__preco">R$ ${coffee.preco.toFixed(2)}</div>
       <div class="CoffeeCardItem__descricao">${coffee.descricao}</div>
       <div class="Acoes">
         <button class="Acoes__editar btn" onclick="abrirModal(${coffee.id})">Editar</button> 
-        <button class="Acoes__apagar btn">Apagar</button>
+        <button class="Acoes__apagar btn" onclick="abrirModalDelete(${coffee.id})">Apagar</button>
       </div>
     </div>
       <img class="PaletaCardItem__foto" src=${
@@ -118,7 +118,7 @@ async function createCoffee() {
     <div class="CoffeeListItem__descricao">${newCoffee.descricao}</div>
     <div class="Acoes">
       <button class="Acoes__editar btn" onclick="abrirModal(${newCoffee.id})">Editar</button> 
-      <button class="Acoes__apagar btn">Apagar</button>
+      <button class="Acoes__apagar btn" onclick="abrirModalDelete(${newCoffee.id})">Apagar</button>
     </div>
   </div>
     <img class="CoffeeListItem__foto" src=${
@@ -134,3 +134,35 @@ async function createCoffee() {
   
   fecharModal()
 };
+
+function abrirModalDelete(id) {
+  document.querySelector("#overlay-delete").style.display = "flex";
+
+  const btnSim = document.querySelector(".btn_delete_yes")
+
+  btnSim.addEventListener("click", function() {
+    deleteCoffee(id);
+  })
+}
+
+function fecharModalDelete() {
+  document.querySelector("#overlay-delete").style.display = "none";
+}
+
+async function deleteCoffee(id) {
+  const response = await fetch(`${baseURL}/delete/${id}`, {
+    method: "delete",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+  });
+
+  const result = await response.json();
+  alert(result.message);
+
+  document.getElementById("CoffeeList").innerHTML = ""
+
+  fecharModalDelete();
+  findAllCoffees();
+}

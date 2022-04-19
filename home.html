@@ -61,7 +61,24 @@
               </div>
           </div>
       </div>
-  </section>
+    </section>
+  
+    <section class="modal-overlay" id="overlay-delete">
+      <div class="modal">
+          <div class="modal-header">
+              <h2 id="title-header-modal">Confirmação de deleção</h2>
+              <a onclick="fecharModalDelete()" class="close-modal">x</a>
+          </div>
+          <div class="modal-body-delete">
+              <p>Deseja realmente apagar esse café?</p>
+              <div class="btns_delete">
+                  <button class="btn_delete_no btn_delete" onclick="fecharModalDelete()">Não</button>
+                  <button class="btn_delete_yes btn_delete">Sim</button>
+              </div>
+          </div>
+      </div>
+    </section>
+    
     <div class="coffee-escolhido-espaco">
       <div id="coffee-escolhido-input-espaco">
         <input type="number" id="idCoffee" placeholder="Digite o ID do café e clique em 'Escolher'" />
@@ -71,10 +88,11 @@
 
       </div>
     </div>
+
     <h2 class="principal">Cafés Disponíveis</h2>
     <section class="Home__container">
       <div class="CoffeeList" id="CoffeeList"></div>
-          
+            
     </section>
     <script src="assets/script/script.js"></script>
   </body>
